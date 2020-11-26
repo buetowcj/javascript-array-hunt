@@ -93,37 +93,77 @@ $(document).ready(function () {
         Find the first and last string in the array.
         Output them to td#firstLast
          */
+            var first = myArray[0];
+            var lastIndex = myArray.length - 1;
+            var last = myArray[lastIndex];
 
+            $("td#firstLast").text(first + " " + last);
 
         /*
         Find the first string that contains an 'n'.
         Output it to td#firstEnn
          */
-
+            for (var i = 0; i<myArray.length; i++)
+            {
+                if (myArray[i].includes("n"))
+                {
+                    $("#firstEnn").text(myArray[i]);
+                    break;
+                }
+            }
 
         /*
         Find all of the strings with less than 6 characters.
         Output them to td#lessThanSix
          */
-
+            var newArray = [];
+            for (var i = 0; i<myArray.length; i++)
+            {
+                if(myArray[i].length < 6)
+                {
+                    newArray.push(myArray[i]);
+                    $("td#lessThanSix").text(newArray);
+                }
+            }
 
         /*
         Find the longest string in the array.
         Output it to td#longName
          */
-
+            var newArray = [];
+            for (var i = 0; i<myArray.length; i++)
+            {
+                if(myArray[i].length < 6)
+                {
+                    newArray.push(myArray[i]);
+                    $("td#longName").text(newArray);
+                }
+            }
 
         /*
         Find all of the strings that do not contain the letter 's'.
         Output them to td#noEss
          */
-
+            var newArray = myArray.filter
+            (
+                function (noS)
+                {
+                    return !noS.includes("s");
+                }
+            )
+            $("td#noEss").text(newArray);
 
         /*
         Output all of the strings, but with all of their vowels
         in uppercase, to td#upperVowels
          */
-
+            var upperVowels = [];
+            for (var anItem of myArray)
+            {
+                var newItem = anItem.replaceAll("a","A").replaceAll("e", "E").replaceAll("i", "I").replaceAll("o", "O").replaceAll("u", "U");
+                upperVowels.push(newItem);
+            }
+            $("td#upperVowels").text(upperVowels);
 
         /*
         Output all of the strings in reverse order and separated by
